@@ -1,7 +1,7 @@
 package ui;
 import java.awt.*;
 import java.awt.event.*;
-
+import ui.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
