@@ -1,0 +1,28 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "15.0.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp spChatRecord::l::598:x}"
+			"$verticalGroup": "par l {comp spChatRecord::l::468:x}"
+		} ) {
+			name: "ChatRecord"
+			"title": "聊天记录"
+			"resizable": false
+			"$locationPolicy": 1
+			"defaultCloseOperation": 2
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "spChatRecord"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "tpChatRecord"
+					"editable": false
+					"focusable": false
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 600, 500 )
+		} )
+	}
+}

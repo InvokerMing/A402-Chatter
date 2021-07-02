@@ -1,0 +1,122 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "15.0.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "fill,hidemode 3"
+			"$columnConstraints": "[fill][fill][fill]"
+			"$rowConstraints": "[160][160][160][]"
+		} ) {
+			name: "Detail"
+			"$sizePolicy": 1
+			"$locationPolicy": 1
+			"resizable": false
+			"title": "个人信息"
+			"defaultCloseOperation": 2
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowActivated", "thisWindowActivated", true ) )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbAvatar"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "E:\\Code\\jfd\\头像 男孩.png" )
+				"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"inheritsPopupMenu": false
+				"focusable": false
+				"disabledIcon": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "lbAvatarMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 0 1 2,align center center,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tfNickname"
+				"editable": false
+				"text": "昵称：清风飞雪"
+				"maximumSize": &Dimension0 new java.awt.Dimension( 214, 214 )
+				"preferredSize": &Dimension1 new java.awt.Dimension( 80, 27 )
+				"horizontalAlignment": 0
+				"focusable": false
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfNicknameKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tfNicknameActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbID"
+				"text": "聊天号：18071099"
+				"font": new java.awt.Font( "Microsoft YaHei UI", 0, 13 )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 0,alignx center,growx 0"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tfAge"
+				"editable": false
+				"text": "年龄：20"
+				"maximumSize": #Dimension0
+				"preferredSize": #Dimension1
+				"horizontalAlignment": 0
+				"focusable": false
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfNicknameKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfAgeKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tfAgeActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tfSex"
+				"editable": false
+				"text": "性别：男"
+				"maximumSize": #Dimension0
+				"preferredSize": #Dimension1
+				"horizontalAlignment": 0
+				"focusable": false
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfNicknameKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfAgeKeyReleased", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnEdit"
+				"text": "修改"
+				"focusable": false
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnEditActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 1 2,alignx center,growx 0,width 100:100:100"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tfHome"
+				"editable": false
+				"text": "家乡：北京"
+				"maximumSize": #Dimension0
+				"preferredSize": #Dimension1
+				"horizontalAlignment": 0
+				"focusable": false
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfNicknameKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfAgeKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfHomeKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "tfHomeActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "tfAge2"
+				"editable": false
+				"text": "生日：2000-01-01"
+				"maximumSize": #Dimension0
+				"preferredSize": #Dimension1
+				"horizontalAlignment": 0
+				"focusable": false
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfNicknameKeyReleased", true ) )
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tfAgeKeyReleased", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 640, 480 )
+		} )
+	}
+}

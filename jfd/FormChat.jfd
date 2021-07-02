@@ -1,0 +1,103 @@
+JFDML JFormDesigner: "7.0.4.0.360" Java: "15.0.1" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		auxiliary() {
+			"JavaCodeGenerator.memberVariableThis": true
+		}
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets panel,hidemode 3"
+			"$columnConstraints": "[grow][grow][150!]"
+			"$rowConstraints": "[200][200][40][120][40]"
+		} ) {
+			name: "Chat"
+			"$locationPolicy": 1
+			"defaultCloseOperation": 2
+			"minimumSize": new java.awt.Dimension( 600, 600 )
+			"$sizePolicy": 1
+			"resizable": false
+			"title": "赵睿"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "spHisMsg"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "tpHisMsg"
+					"editable": false
+					"text": "历史消息"
+					"focusable": false
+					"foreground": sfield java.awt.Color blue
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 13 )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "span 2 2,grow"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbAvatar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/头像 男孩 100.png" )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 0,alignx center,growx 0"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbNickID"
+				"text": "赵睿（18071024）"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 1,align center top,grow 0 0"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnPic"
+				"text": "图片"
+				"focusPainted": false
+				"focusable": false
+				"font": &Font0 new java.awt.Font( "Microsoft YaHei UI", 0, 13 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnPicActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnFile"
+				"text": "文件"
+				"focusPainted": false
+				"focusable": false
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnFileActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnMsgRec"
+				"text": "聊天记录"
+				"focusPainted": false
+				"focusable": false
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnMsgRecActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2,alignx right,growx 0"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "spInputMsg"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "tpInputMsg"
+					"cursor": new java.awt.Cursor( 2 )
+					"font": new java.awt.Font( "Microsoft YaHei UI", 0, 13 )
+					addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "tpInputMsgKeyReleased", true ) )
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3 2 1,grow"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnSendMsg"
+				"text": "发送"
+				"actionCommand": "SendMessage"
+				"focusable": false
+				"font": #Font0
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "btnSendMsgActionPerformed", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 4,alignx right"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 600, 600 )
+		} )
+	}
+}
