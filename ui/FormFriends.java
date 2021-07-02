@@ -2,6 +2,8 @@ package ui;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import chat.Chatter;
 import net.miginfocom.swing.*;
 /*
  * Created by JFormDesigner on Thu Jun 10 21:41:20 CST 2021
@@ -39,7 +41,8 @@ public class FormFriends extends Form{
 	}
 
 	private void btnMyDetailActionPerformed(ActionEvent e) {
-
+		FormManager.FD.setDetail(Chatter.me);
+		FormManager.FD.setShowing(true);
 	}
 
 	private void btnChangeThemeActionPerformed(ActionEvent e) {

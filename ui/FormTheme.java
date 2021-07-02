@@ -1,17 +1,20 @@
 package ui;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.intellijthemes.*;
+import com.formdev.flatlaf.intellijthemes.FlatDraculaIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatSolarizedLightIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-/*
- * Created by JFormDesigner on Fri Jul 02 22:34:09 CST 2021
- */
 
 
-/**
- * @author somnusym
- */
 public class FormTheme extends Form {
 	public static String[] themes = {
 			"Light",
@@ -21,14 +24,14 @@ public class FormTheme extends Form {
 			"Cyan Light",
 			"Gray",
 			"Light Flat - Intellij",
-			"Solarized Light - Intellij",
+			"Carbon",
 			"Atom One Light",
 			"Github",
 			"Light Owl",
 			"Material Lighter",
-			"Solarized Light - Material",
+			"Github Dark",
 			"Dark",
-			"Darcula - Intellij"
+			"Dracula - Intellij"
 	};
 
 	public FormTheme(){
@@ -36,7 +39,40 @@ public class FormTheme extends Form {
 	}
 
 	private void listThemesMouseClicked(MouseEvent e) {
-		// TODO add your code here
+		if (e.getClickCount() == 2){
+			String item = listThemes.getSelectedValue().toString();
+			if (item.equals(themes[0]))
+				FlatLightLaf.setup();
+			else if (item.equals(themes[1]))
+				FlatIntelliJLaf.setup();
+			else if (item.equals(themes[2]))
+				FlatArcIJTheme.setup();
+			else if (item.equals(themes[3]))
+				FlatArcDarkOrangeIJTheme.setup();
+			else if (item.equals(themes[4]))
+				FlatCyanLightIJTheme.setup();
+			else if (item.equals(themes[5]))
+				FlatGrayIJTheme.setup();
+			else if (item.equals(themes[6]))
+				FlatLightFlatIJTheme.setup();
+			else if (item.equals(themes[7]))
+				FlatCarbonIJTheme.setup();
+			else if (item.equals(themes[8]))
+				FlatAtomOneLightIJTheme.setup();
+			else if (item.equals(themes[9]))
+				FlatGitHubIJTheme.setup();
+			else if (item.equals(themes[10]))
+				FlatLightOwlIJTheme.setup();
+			else if (item.equals(themes[11]))
+				FlatMaterialLighterIJTheme.setup();
+			else if (item.equals(themes[12]))
+				FlatGitHubDarkIJTheme.setup();
+			else if (item.equals(themes[13]))
+				FlatDarkLaf.setup();
+			else if (item.equals(themes[14]))
+				FlatDraculaIJTheme.setup();
+			FlatLaf.updateUI();
+		}
 	}
 
 	private void initComponents() {
@@ -56,6 +92,13 @@ public class FormTheme extends Form {
 			{
 
 				//---- listThemes ----
+				listThemes.setModel(new AbstractListModel<String>() {
+					String[] values = themes;
+					@Override
+					public int getSize() { return this.values.length; }
+					@Override
+					public String getElementAt(int i) { return this.values[i]; }
+				});
 				listThemes.setFocusable(false);
 				listThemes.addMouseListener(new MouseAdapter() {
 					@Override

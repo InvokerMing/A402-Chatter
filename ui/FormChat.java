@@ -1,6 +1,7 @@
 package ui;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 import javax.swing.*;
 
 import DAO.DAO;
@@ -87,13 +88,12 @@ public class FormChat extends Form {
 				this.tpHisMsg.setFocusable(false);
 				this.tpHisMsg.setForeground(Color.blue);
 				this.tpHisMsg.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 13));
-				this.tpHisMsg.setBackground(Color.white);
 				this.spHisMsg.setViewportView(this.tpHisMsg);
 			}
 			ChatContentPane.add(this.spHisMsg, "span 2 2,grow");
 
 			//---- lbAvatar ----
-			this.lbAvatar.setIcon(new ImageIcon(getClass().getResource("/source/\u5934\u50cf \u7537\u5b69 100.png")));
+			this.lbAvatar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/source/\u5934\u50cf \u7537\u5b69 100.png"))));
 			ChatContentPane.add(this.lbAvatar, "cell 2 0,alignx center,growx 0");
 
 			//---- lbNickID ----

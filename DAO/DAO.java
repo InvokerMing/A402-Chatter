@@ -1,18 +1,17 @@
 package DAO;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class DAO {
     public static ArrayList<User> users = getUsers();
+    public static String file = "E:\\Code\\jfd\\chatter-hw\\A402-Chatter\\source\\users.txt";
 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
         //数据库
-        String str = readFileContent("E:\\Code\\jfd\\chatter-hw\\A402-Chatter\\source\\users.txt");
+        String str = readFileContent(file);
         String[] usersStr = str.split("\n");
         for (String userStr : usersStr) {
             String[] details = userStr.split(" ");
@@ -71,4 +70,25 @@ public class DAO {
         }
         return sbf.toString();
     }
+
+    public static void continueWriteFile(String fileName, String str) {
+        FileWriter fw = null;
+        try {
+            File f=new File(fileName);
+            fw = new FileWriter(f, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PrintWriter pw = new PrintWriter(fw);
+        pw.println(str);
+        pw.flush();
+        try {
+            fw.flush();
+            pw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

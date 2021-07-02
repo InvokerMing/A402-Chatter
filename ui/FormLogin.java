@@ -1,121 +1,155 @@
 package ui;
+
+import DAO.DAO;
+import DAO.User;
+import chat.Chatter;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
-/*
- * Created by JFormDesigner on Fri Jun 25 02:35:08 CST 2021
- */
 
 
-
-/**
- * @author Brainrain
- */
 public class FormLogin extends Form {
 
-	public FormLogin() {
-		initComponents();
-	}
+    public FormLogin() {
+        initComponents();
+    }
 
-	private void btnRegisterActionPerformed(ActionEvent e) {
-		// TODO add your code here
-	}
+    private void btnRegisterActionPerformed(ActionEvent e) {
+        String account = tfAccount.getText();
+        if (account.equals("")) {
+            JOptionPane.showMessageDialog(null, "请输入正确的ID号！");
+        }
 
-	private void btnLoginActionPerformed(ActionEvent e) {
-		// TODO add your code here
-	}
+        User user = DAO.getUser(Integer.parseInt(account));
+        if (user != null) {
+            JOptionPane.showMessageDialog(null, "此ID号已存在！");
+        } else {
+            User usr = new User(
+                    Integer.parseInt(account),
+                    "昵称",
+                    "家乡",
+                    21,
+                    01,
+                    01,
+                    2000,
+                    "性别"
+            );
+            DAO.continueWriteFile(DAO.file, usr.toString());
+            JOptionPane.showMessageDialog(null, "注册成功！");
+            Chatter.me = usr;
+            this.setShowing(false);
+            FormManager.FF.setShowing(true);
+        }
+    }
 
-	private void tfAccountActionPerformed(ActionEvent e) {
-		// TODO add your code here
-	}
+    private void btnLoginActionPerformed(ActionEvent e) {
+        String account = tfAccount.getText();
+        if (account.equals("")) {
+            JOptionPane.showMessageDialog(null, "请输入正确的ID号！");
+        }
 
-	private void initComponents() {
-		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		Login = new JFrame();
-		btnRegister = new JButton();
-		btnLogin = new JButton();
-		pwPassword = new JPasswordField();
-		lbPassword = new JLabel();
-		lbAccount = new JLabel();
-		tfAccount = new JTextField();
+        User user = DAO.getUser(Integer.parseInt(account));
+        if (user != null) {
+            Chatter.me = user;
+            this.setShowing(false);
+            FormManager.FF.setShowing(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "请输入正确的ID号！");
+        }
+    }
 
-		//======== Login ========
-		{
-			Login.setTitle("\u767b\u5f55");
-			Login.setResizable(false);
-			Login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-			Container LoginContentPane = Login.getContentPane();
+    private void tfAccountActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
 
-			//---- btnRegister ----
-			btnRegister.setText("\u6ce8\u518c");
-			btnRegister.addActionListener(e -> btnRegisterActionPerformed(e));
+    private void initComponents() {
+        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        Login = new JFrame();
+        btnRegister = new JButton();
+        btnLogin = new JButton();
+        pwPassword = new JPasswordField();
+        lbPassword = new JLabel();
+        lbAccount = new JLabel();
+        tfAccount = new JTextField();
 
-			//---- btnLogin ----
-			btnLogin.setText("\u767b\u5f55");
-			btnLogin.addActionListener(e -> btnLoginActionPerformed(e));
+        //======== Login ========
+        {
+            Login.setTitle("\u767b\u5f55");
+            Login.setResizable(false);
+            Login.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            Container LoginContentPane = Login.getContentPane();
 
-			//---- lbPassword ----
-			lbPassword.setText("\u5bc6\u7801\uff1a");
+            //---- btnRegister ----
+            btnRegister.setText("\u6ce8\u518c");
+            btnRegister.addActionListener(e -> btnRegisterActionPerformed(e));
 
-			//---- lbAccount ----
-			lbAccount.setText("\u8d26\u53f7\uff1a");
+            //---- btnLogin ----
+            btnLogin.setText("\u767b\u5f55");
+            btnLogin.addActionListener(e -> btnLoginActionPerformed(e));
 
-			//---- tfAccount ----
-			tfAccount.addActionListener(e -> tfAccountActionPerformed(e));
+            //---- lbPassword ----
+            lbPassword.setText("\u5bc6\u7801\uff1a");
 
-			GroupLayout LoginContentPaneLayout = new GroupLayout(LoginContentPane);
-			LoginContentPane.setLayout(LoginContentPaneLayout);
-			LoginContentPaneLayout.setHorizontalGroup(
-				LoginContentPaneLayout.createParallelGroup()
-					.addGroup(LoginContentPaneLayout.createSequentialGroup()
-						.addGap(125, 125, 125)
-						.addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-							.addGroup(LoginContentPaneLayout.createSequentialGroup()
-								.addComponent(lbAccount)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(tfAccount))
-							.addGroup(LoginContentPaneLayout.createSequentialGroup()
-								.addComponent(lbPassword)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(pwPassword))
-							.addGroup(GroupLayout.Alignment.TRAILING, LoginContentPaneLayout.createSequentialGroup()
-								.addComponent(btnRegister)
-								.addGap(77, 77, 77)
-								.addComponent(btnLogin)))
-						.addContainerGap(119, Short.MAX_VALUE))
-			);
-			LoginContentPaneLayout.setVerticalGroup(
-				LoginContentPaneLayout.createParallelGroup()
-					.addGroup(GroupLayout.Alignment.TRAILING, LoginContentPaneLayout.createSequentialGroup()
-						.addContainerGap(74, Short.MAX_VALUE)
-						.addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(lbAccount)
-							.addComponent(tfAccount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGap(18, 18, 18)
-						.addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(lbPassword)
-							.addComponent(pwPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGap(40, 40, 40)
-						.addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(btnRegister)
-							.addComponent(btnLogin))
-						.addGap(79, 79, 79))
-			);
-			Login.pack();
-			Login.setLocationRelativeTo(null);
-		}
-		// JFormDesigner - End of component initialization  //GEN-END:initComponents
-	}
+            //---- lbAccount ----
+            lbAccount.setText("\u8d26\u53f7\uff1a");
 
-	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	public JFrame Login;
-	private JButton btnRegister;
-	private JButton btnLogin;
-	private JPasswordField pwPassword;
-	private JLabel lbPassword;
-	private JLabel lbAccount;
-	private JTextField tfAccount;
-	// JFormDesigner - End of variables declaration  //GEN-END:variables
+            //---- tfAccount ----
+            tfAccount.addActionListener(e -> tfAccountActionPerformed(e));
+
+            GroupLayout LoginContentPaneLayout = new GroupLayout(LoginContentPane);
+            LoginContentPane.setLayout(LoginContentPaneLayout);
+            LoginContentPaneLayout.setHorizontalGroup(
+                    LoginContentPaneLayout.createParallelGroup()
+                            .addGroup(LoginContentPaneLayout.createSequentialGroup()
+                                    .addGap(125, 125, 125)
+                                    .addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(LoginContentPaneLayout.createSequentialGroup()
+                                                    .addComponent(lbAccount)
+                                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(tfAccount))
+                                            .addGroup(LoginContentPaneLayout.createSequentialGroup()
+                                                    .addComponent(lbPassword)
+                                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(pwPassword))
+                                            .addGroup(GroupLayout.Alignment.TRAILING, LoginContentPaneLayout.createSequentialGroup()
+                                                    .addComponent(btnRegister)
+                                                    .addGap(77, 77, 77)
+                                                    .addComponent(btnLogin)))
+                                    .addContainerGap(119, Short.MAX_VALUE))
+            );
+            LoginContentPaneLayout.setVerticalGroup(
+                    LoginContentPaneLayout.createParallelGroup()
+                            .addGroup(GroupLayout.Alignment.TRAILING, LoginContentPaneLayout.createSequentialGroup()
+                                    .addContainerGap(74, Short.MAX_VALUE)
+                                    .addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lbAccount)
+                                            .addComponent(tfAccount, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lbPassword)
+                                            .addComponent(pwPassword, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGap(40, 40, 40)
+                                    .addGroup(LoginContentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                            .addComponent(btnRegister)
+                                            .addComponent(btnLogin))
+                                    .addGap(79, 79, 79))
+            );
+            Login.pack();
+            Login.setLocationRelativeTo(null);
+        }
+        // JFormDesigner - End of component initialization  //GEN-END:initComponents
+    }
+
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    public JFrame Login;
+    private JButton btnRegister;
+    private JButton btnLogin;
+    private JPasswordField pwPassword;
+    private JLabel lbPassword;
+    private JLabel lbAccount;
+    private JTextField tfAccount;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

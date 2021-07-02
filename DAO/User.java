@@ -20,4 +20,16 @@ public class User {
         this.BYear = BYear;
         this.sex = sex;
     }
+
+    @Override
+    public String toString() {
+        return  id + " " +
+                nickname + " " +
+                sex + " " +
+                age + " " +
+                BYear + " " +
+                BMonth + " " +
+                BDay + " " +
+                home + "\n";
+    }
 }

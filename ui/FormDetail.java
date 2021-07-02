@@ -1,6 +1,7 @@
 package ui;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 import javax.swing.*;
 
 import DAO.DAO;
@@ -56,11 +57,8 @@ public class FormDetail extends Form {
 		// TODO add your code here
 	}
 
-	public boolean setDetail(int uid) {
+	public boolean setDetail(User user) {
 		// 数据库中根据uid获取用户信息
-		User user = DAO.getUser(uid);
-		if (user == null)
-			return false;
 		tfNickname.setText(user.nickname);
 		lbID.setText(String.valueOf(user.id));
 		tfAge.setText(String.valueOf(user.age));
@@ -113,8 +111,7 @@ public class FormDetail extends Form {
 				"[]"));
 
 			//---- lbAvatar ----
-			lbAvatar.setIcon(new ImageIcon("E:\\Code\\jfd\\\u5934\u50cf \u7537\u5b69.png"));
-			lbAvatar.setMaximumSize(null);
+			lbAvatar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/source/\u5934\u50cf \u7537\u5b69.png"))));
 			lbAvatar.setInheritsPopupMenu(false);
 			lbAvatar.setFocusable(false);
 			lbAvatar.setDisabledIcon(null);
