@@ -1,7 +1,6 @@
 package DAO;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class DAO {
@@ -49,8 +48,7 @@ public class DAO {
             while ((tempStr = reader.readLine()) != null) {
                 if (cnt == 0) {
                     sbf.append(tempStr);
-                }
-                else {
+                } else {
                     sbf.append("\n" + tempStr);
                 }
                 cnt++;
@@ -74,7 +72,7 @@ public class DAO {
     public static void continueWriteFile(String fileName, String str) {
         FileWriter fw = null;
         try {
-            File f=new File(fileName);
+            File f = new File(fileName);
             fw = new FileWriter(f, true);
         } catch (IOException e) {
             e.printStackTrace();
