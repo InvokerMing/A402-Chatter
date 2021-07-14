@@ -5,8 +5,7 @@ import java.awt.event.*;
 import java.util.Objects;
 import javax.swing.*;
 
-import DAO.DAO;
-import DAO.User;
+import DTO.User;
 import net.miginfocom.swing.*;
 
 public class FormChat extends Form {
@@ -86,7 +85,7 @@ public class FormChat extends Form {
             ChatContentPane.add(this.spHisMsg, "span 2 2,grow");
 
             //---- lbAvatar ----
-            this.lbAvatar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/resource/\u5934\u50cf \u7537\u5b69 100.png"))));
+            this.lbAvatar.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("/jpg/\u5934\u50cf \u7537\u5b69 100.png"))));
             ChatContentPane.add(this.lbAvatar, "cell 2 0,alignx center,growx 0");
 
             //---- lbNickID ----
@@ -148,10 +147,10 @@ public class FormChat extends Form {
 
     public boolean setChat(int uid) {
         // 数据库中根据uid获取用户信息
-        User user = DAO.getUser(uid);
+        User user = User.getUser(uid);
         if (user == null)
             return false;
-        lbNickID.setText(user.nickname + "(" + String.valueOf(user.id) + ")");
+        lbNickID.setText(user.getNickname() + "(" + user.getID() + ")");
         return true;
     }
 

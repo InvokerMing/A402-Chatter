@@ -22,7 +22,7 @@ public class FormFriends extends Form {
             String item = listFriends.getModel().getElementAt(listFriends.getSelectedIndex()).toString();
             String[] temp = item.split("_");
             if (FormManager.FC.setChat(Integer.parseInt(temp[1])))
-                FormManager.FC.setShowing(true);
+                FormManager.FC.show(true);
         }
     }
 
@@ -35,12 +35,12 @@ public class FormFriends extends Form {
     }
 
     private void btnMyDetailActionPerformed(ActionEvent e) {
-        FormManager.FD.setDetail(Chatter.me);
-        FormManager.FD.setShowing(true);
+        FormManager.FD.setUser(Chatter.curUser);
+        FormManager.FD.show(true);
     }
 
     private void btnChangeThemeActionPerformed(ActionEvent e) {
-        FormManager.FT.setShowing(true);
+        FormManager.FT.show(true);
     }
 
     private void miSendMessageActionPerformed(ActionEvent e) {

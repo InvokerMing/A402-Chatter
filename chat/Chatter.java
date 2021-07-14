@@ -1,15 +1,15 @@
 package chat;
 
-import DAO.User;
-import com.formdev.flatlaf.*;
+import DTO.User;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
 import ui.FormManager;
 
 
 public class Chatter {
-    public static User me;
+    public static User curUser;
 
     public static void main(String[] args) {
-        FlatIntelliJLaf.setup();
-        FormManager.FL.setShowing(true);
+        FlatGitHubIJTheme.setup();
+        FormManager.FL.show(true);
     }
 }
